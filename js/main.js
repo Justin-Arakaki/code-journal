@@ -16,9 +16,7 @@ function handleSubmitCreate(e) {
     photo: input.photo.value,
     notes: input.notes.value
   };
-  data.entries.push(newEntry);
-  const dataJSON = JSON.stringify(data);
-  localStorage.setItem('data-local-storage', dataJSON);
+  data.entries.unshift(newEntry);
 }
 
 function handlePhotoChange(e) {
