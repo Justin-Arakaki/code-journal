@@ -13,11 +13,42 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/utility.css">
 </head>
 <body>
   <header>
+    <div class="container">
+      <div class="row">
+        <h4 class="column-full no-margin font-weight-normal">Code Journal</h4>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container" data-view="entry-form">
+      <h1 class="column-full">New Entry</h1>
+      <form id="entry-form">
+        <div class="row">
+          <div class="column-half">
+            <img class="img-preview radius" src="images/placeholder-image-square.jpg" alt="Photo" onerror="imgError()">
+          </div>
+          <div class="column-half">
+            <label for="title">Title</label>
+            <input required class="radius" type="text" name="title" id="title">
+            <label for="photo">Photo URL</label>
+            <input required class="radius" type="text" name="photo" id="photo">
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <textarea required class="radius" name="notes" id="notes" rows="6"></textarea>
+          </div>
+          <div class="row column-full justify-right">
+            <button class="submit radius" type="submit">SAVE</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
