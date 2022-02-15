@@ -17,13 +17,15 @@ function handleSubmitCreate(e) {
     notes: input.notes.value
   };
   data.entries.unshift(newEntry);
+  event.target.reset();
+  $image.src = 'images/placeholder-image-square.jpg';
 }
 
-function handlePhotoChange(e) {
+function handlePhotoChange(e) { // Changes the image
   const input = e.target.value;
   $image.src = input;
 }
 
-function imgError() {
+function imgError() { // Catches errors with the image
   $image.src = 'images/placeholder-image-square.jpg';
 }
