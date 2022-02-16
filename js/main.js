@@ -10,10 +10,9 @@ const $viewName = document.querySelector('header h1');
 const $view = document.querySelectorAll('[data-view]');
 const $newButton = document.querySelector('.new');
 const $entryList = document.querySelector('[data-view="entries"] > ul');
-const $topEntry = $entryList.firstChild;
 const $empty = document.querySelector('[data-view="entries"] > h4');
 $newButton.addEventListener('click', handleNewClick);
-populateEntries();
+document.addEventListener('DOMContentLoaded', populateEntries);
 
 function handleSubmitCreate(e) {
   event.preventDefault();
@@ -24,6 +23,7 @@ function handleSubmitCreate(e) {
     photo: input.photo.value,
     notes: input.notes.value
   };
+  const $topEntry = $entryList.firstChild;
   data.entries.unshift(newEntry);
   data.nextEntryId++;
   event.target.reset();
@@ -42,7 +42,7 @@ function handleNewClick() {
   $image.src = 'images/placeholder-image-square.jpg';
 }
 
-function imgError() { // Catches errors with the image
+function imgDefault() { // Catches errors with the image
   $image.src = 'images/placeholder-image-square.jpg';
 }
 
@@ -78,7 +78,7 @@ function renderEntry(entry) {
   $colInfo.setAttribute('class', 'column-half');
   const $photo = document.createElement('img');
   $photo.setAttribute('class', 'img-preview radius');
-  $photo.setAttribute('onerror', 'imgError()');
+  $photo.setAttribute('onerror', 'this.onerror=null;this.src="images/placeholder-image-square.jpg"');
   $photo.setAttribute('src', entry.photo);
   $photo.setAttribute('alt', 'photo');
   const $title = document.createElement('h2');
@@ -103,4 +103,4 @@ function populateEntries() {
   }
 }
 
-imgError(); // to escape the lint
+imgDefault(); // to escape the lint
