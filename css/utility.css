@@ -1,0 +1,45 @@
+.text-justify-center {
+  text-align: center;
+}
+
+.justify-right {
+  justify-content: right;
+}
+
+.justify-space {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+.gap {
+  gap: 1rem;
+}
+
+.white {
+  color: white;
+}
+
+.full-block {
+  display: block;
+  width: 100%;
+}
+
+.no-margin {
+  margin: 0;
+  padding: 0;
+}
+
+.radius {
+  border-radius: 5px;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}

@@ -13,11 +13,62 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/utility.css">
 </head>
 <body>
   <header>
+    <div class="top">
+      <div class="container">
+        <div class="row column-full align-baseline gap">
+          <h3 class="no-margin font-weight-normal white">Code Journal</h3>
+          <!-- control using text content -->
+          <h4 class="no-margin font-weight-normal white">Entries</h4>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row column-full justify-space align-center">
+        <!-- control using text content -->
+        <h1>Entries</h1>
+        <!-- control using classes -->
+        <div>
+          <button class="new radius">NEW</button>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <!-- control using view swapping -->
+    <div class="container hidden" data-view="entry-form">
+      <form id="entry-form">
+        <div class="row">
+          <div class="column-half">
+            <img class="img-preview radius" src="images/placeholder-image-square.jpg" alt="Photo" onerror="imgDefault(e)">
+          </div>
+          <div class="column-half">
+            <label for="title">Title</label>
+            <input required class="radius" type="text" name="title" id="title">
+            <label for="photo">Photo URL</label>
+            <input required class="radius" type="text" name="photo" id="photo">
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <textarea required class="radius" name="notes" id="notes" rows="6"></textarea>
+          </div>
+          <div class="row column-full justify-right">
+            <button class="submit radius" type="submit">SAVE</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="container" data-view="entries">
+      <h4 class="font-weight-normal text-justify-center hidden">
+        No entries have been recorded.
+      </h4>
+      <ul class="no-margin">
+      </ul>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
