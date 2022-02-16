@@ -1,10 +1,29 @@
-.text-justify-right {
-  text-justify: right;
-  justify-self: right;
+.text-justify-center {
+  text-align: center;
 }
 
 .justify-right {
   justify-content: right;
+}
+
+.justify-space {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+.gap {
+  gap: 1rem;
+}
+
+.white {
+  color: white;
 }
 
 .full-block {

@@ -2,12 +2,6 @@ html {
   background-color: rgb(240 240 240);
 }
 
-header {
-  padding: 1rem 0;
-  color: white;
-  background-color: rgb(86 43 129);
-}
-
 main {
   padding-bottom: 1.5rem;
 }
@@ -47,8 +41,17 @@ button {
   border-style: none;
 }
 
+.top {
+  padding: 1rem 0;
+  background-color: rgb(86 43 129);
+}
+
 .submit {
   padding: 0.75rem 1.2rem;
+}
+
+.new {
+  padding: 0.4rem 0.75rem;
 }
 
 @media screen and (max-width: 768px) {

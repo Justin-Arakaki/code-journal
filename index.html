@@ -17,15 +17,29 @@
 </head>
 <body>
   <header>
+    <div class="top">
+      <div class="container">
+        <div class="row column-full align-baseline gap">
+          <h3 class="no-margin font-weight-normal white">Code Journal</h3>
+          <!-- control using text content -->
+          <h4 class="no-margin font-weight-normal white">Entries</h4>
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <div class="row">
-        <h4 class="column-full no-margin font-weight-normal">Code Journal</h4>
+      <div class="row column-full justify-space align-center">
+        <!-- control using text content -->
+        <h1>Entries</h1>
+        <!-- control using classes -->
+        <div>
+          <button class="new radius">NEW</button>
+        </div>
       </div>
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form">
-      <h1 class="column-full">New Entry</h1>
+    <!-- control using view swapping -->
+    <div class="container hidden" data-view="entry-form">
       <form id="entry-form">
         <div class="row">
           <div class="column-half">
@@ -49,6 +63,12 @@
         </div>
       </form>
     </div>
+    <div class="container" data-view="entries">
+      <h4 class="font-weight-normal text-justify-center hidden">
+        No entries have been recorded.
+      </h4>
+      <ul class="no-margin">
+      </ul>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
