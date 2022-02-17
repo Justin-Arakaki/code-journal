@@ -36,10 +36,18 @@
   padding: 0;
 }
 
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
 .radius {
   border-radius: 5px;
 }
 
 .font-weight-normal {
   font-weight: normal;
+}
+
+.max-width-80 {
+  max-width: 80%;
 }
