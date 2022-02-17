@@ -12,7 +12,7 @@ $entryList.addEventListener('click', editView);
 const $emptyCase = document.querySelector('[data-view="entries"] > h4');
 document.addEventListener('DOMContentLoaded', populateEntries);
 let editIndex = null;
-let targetUpdated = null;
+let $targetUpdated = null;
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -29,14 +29,30 @@ function handleSubmit(e) {
     data.nextEntryId++;
     $entryList.insertBefore(renderEntry(data.entries[0]), $topEntry);
   } else {
+    if (editIndex === null || $targetUpdated === null) {
+      editIndex = searchEntries(data.editing);
+      $targetUpdated = $entryList.firstChild;
+      for (let i = 0; i < editIndex; i++) {
+        $targetUpdated = $targetUpdated.nextSibling;
+      }
+    }
     data.entries[editIndex] = newEntry;
-    $entryList.replaceChild(renderEntry(newEntry), targetUpdated);
+    $entryList.replaceChild(renderEntry(newEntry), $targetUpdated);
     data.editing = null;
     editIndex = null;
   }
   e.target.reset();
   $emptyCase.className = 'hidden';
   switchView('entries');
+}
+
+function searchEntries(entryObject) { // Returns index of entry in data.entries
+  for (const x in data.entries) {
+    if (data.entries[x] === entryObject) {
+      return x;
+    }
+  }
+  return -1;
 }
 
 function handlePhotoChange(e) { // Changes the image
@@ -70,16 +86,19 @@ function switchView(view) {
       $topLoc.textContent = '';
       $viewName.textContent = 'New Entry';
       $newButton.className = 'new hidden';
+      data.view = 'entry-form';
       break;
     case 'entries':
       $topLoc.textContent = 'Entries';
       $viewName.textContent = 'Entries';
       $newButton.className = 'new radius';
+      data.view = 'entries';
       break;
     case 'edit-entry':
       $topLoc.textContent = 'Entries';
       $viewName.textContent = 'Edit Entry';
       $newButton.className = 'new hidden';
+      data.view = 'edit-entry';
       break;
   }
 }
@@ -91,10 +110,10 @@ function editView(e) {
     for (const x in data.entries) {
       const entry = data.entries[x];
       if (id === entry.entryId.toString()) {
-        populateEdit(entry);
         data.editing = entry;
         editIndex = x;
-        targetUpdated = clickee.closest('li');
+        $targetUpdated = clickee.closest('li');
+        populateEdit(entry);
       }
     }
     switchView('edit-entry');
@@ -150,6 +169,8 @@ function populateEntries() {
   if (data.nextEntryId === 1) {
     $emptyCase.className = 'font-weight-normal text-justify-center';
   }
+  switchView(data.view);
+  populateEdit(data.editing);
 }
 
 imgDefault(); // to escape the lint
