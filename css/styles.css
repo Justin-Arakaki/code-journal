@@ -54,6 +54,13 @@ button {
   padding: 0.4rem 0.75rem;
 }
 
+.delete {
+  color: red;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .icon {
   font-size: 1.5rem;
   height: 1.5rem;
@@ -65,8 +72,38 @@ button {
   margin-bottom: 2rem;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.delete-message {
+  max-width: 85%;
+  width: 500px;
+  margin: 30vh auto;
+  padding: 1rem;
+  background-color: white;
+}
+
+.cancel {
+  color: black;
+  font-weight: bold;
+  background-color: rgb(182 182 182);
+  padding: 0.5rem 0.75rem;
+}
+
+.confirm {
+  background-color: rgb(220, 38, 38);
+  padding: 0.5rem 0.75rem;
+}
+
 button:hover,
-.icon:hover {
+.icon:hover,
+.delete {
   cursor: pointer;
 }
 

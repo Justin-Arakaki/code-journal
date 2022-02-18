@@ -17,7 +17,7 @@ window.addEventListener('beforeunload', function () {
   localStorage.setItem('data-local-storage', dataJSON);
 });
 
-function updateEditing() {
+function updateEditing() { // Stores changes in inputs but page is reloaded
   const $notes = document.querySelector('#notes');
   const $photo = document.querySelector('#photo');
   const $title = document.querySelector('#title');
