@@ -25,9 +25,7 @@ function handleLoad() { // Loads all information to html
   for (let i = 0; i < data.entries.length; i++) {
     $entryList.appendChild(renderEntry(data.entries[i]));
   }
-  if (data.nextEntryId === 1) {
-    $emptyCase.className = 'font-weight-normal text-justify-center';
-  }
+  emptyCase();
   switchView(data.view);
   autofillEdit(data.editing);
 }
@@ -101,6 +99,8 @@ function handleClickConfirmDelete() { // When confirm button clicked
   updateEditVars();
   $targetUpdated.remove();
   clearEditVars();
+  emptyCase();
+  clearInputs();
   switchView('entries');
 }
 
@@ -128,8 +128,12 @@ function clearInputs() { // Fixes input values changed via JS
   $notes.textContent = '';
 }
 
-function imgDefault() { // Catches errors with the image
-  $imagePreview.src = 'images/placeholder-image-square.jpg';
+function imgDefault(e) { // Catches errors with the image
+  const $image = e.target;
+  const placeholder = 'images/placeholder-image-square.jpg';
+  if (!$image.src.includes(placeholder)) {
+    $imagePreview.src = placeholder;
+  }
 }
 
 function switchView(view) { // Changes html to the view (string)
@@ -217,6 +221,12 @@ function renderEntry(entry) { // Returns entry element
   $titleRow.appendChild($edit);
   $colInfo.appendChild($notes);
   return $row;
+}
+
+function emptyCase() {
+  if (data.entries.length === 0) {
+    $emptyCase.className = 'font-weight-normal text-justify-center';
+  }
 }
 
 imgDefault(); // to escape the lint
