@@ -40,6 +40,10 @@
   margin-bottom: 1rem;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+
 .radius {
   border-radius: 5px;
 }
