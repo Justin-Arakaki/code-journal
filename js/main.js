@@ -85,15 +85,15 @@ function handleClickNew() { // When clicking new button
   imgDefault();
 }
 
-function handleClickDelete() {
+function handleClickDelete() { // When delete button clicked
   $overlay.className = 'overlay';
 }
 
-function handleClickCancelDelete() {
+function handleClickCancelDelete() { // When cancel button clicked
   $overlay.className = 'overlay hidden';
 }
 
-function handleClickConfirmDelete() {
+function handleClickConfirmDelete() { // When confirm button clicked
   const index = searchEntries(data.editing);
   data.entries.splice(index, 1);
   data.editing = null;
@@ -104,7 +104,7 @@ function handleClickConfirmDelete() {
   switchView('entries');
 }
 
-function updateEditVars() {
+function updateEditVars() { // Updates editIndex & $targetUpdated
   if (editIndex === null || $targetUpdated === null) {
     editIndex = searchEntries(data.editing);
     $targetUpdated = $entryList.firstChild;
@@ -114,7 +114,7 @@ function updateEditVars() {
   }
 }
 
-function clearEditVars() {
+function clearEditVars() { // Sets editIndex & $targetUpdated to null
   editIndex = null;
   $targetUpdated = null;
 }
